@@ -39,21 +39,21 @@ const update = catchError(async (req, res) => {
 const setMovieGenres = catchError(async (req, res) => {
   const { id } = req.params;
   const movie = await Movie.findByPk(id);
-  await movie.setGenres(res.body);
+  await movie.setGenres(req.body);
   const genres = await movie.getGenres();
   return res.json(genres);
 });
 const setMovieActors = catchError(async (req, res) => {
   const { id } = req.params;
   const movie = await Movie.findByPk(id);
-  await movie.setActors(res.body);
+  await movie.setActors(req.body);
   const actors  = await movie.getActors();
   return res.json(actors);
 });
 const setMovieDirectors = catchError(async (req, res) => {
   const { id } = req.params;
   const movie = await Movie.findByPk(id);
-  await movie.setDirectors (res.body);
+  await movie.setDirectors (req.body);
   const directors = await movie.getDirectors();
   return res.json(directors);
 });
